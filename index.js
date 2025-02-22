@@ -7,6 +7,7 @@
 import { input } from '@inquirer/prompts';
 import qr from "qr-image";
 import fs from 'node:fs';
+import { writeFile } from 'node:fs';
 
 //solicita ao usuário um site e salva o site na constante userURL
 const userURL = await input({ message: 'Enter your URL: ' });
@@ -14,4 +15,10 @@ const userURL = await input({ message: 'Enter your URL: ' });
 //cria o qr code relativo ao site digitado;
 const qr_png = qr.image(userURL);
 qr_png.pipe(fs.createWriteStream('site_qr.png'));
+
+writeFile("message.txt", userURL, err => {
+    if (err) throw err;
+    console.log("The URL was saved!")
+})
+
 
