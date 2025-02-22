@@ -1,0 +1,16 @@
+{
+  "name": "ms1_qrcode_proj",
+  "version": "1.0.0",
+  "description": "get a url from user and return the qr code image and a text file with user url",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MarceloS 1lveira",
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^7.3.2",
+    "qr-image": "^3.2.0"
+  }
+}
