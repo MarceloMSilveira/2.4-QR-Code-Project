@@ -5,7 +5,13 @@
 */
 
 import { input } from '@inquirer/prompts';
+import qr from "qr-image";
+import fs from 'node:fs';
 
-const answer = await input({ message: 'Enter your URL: ' });
+//solicita ao usuário um site e salva o site na constante userURL
+const userURL = await input({ message: 'Enter your URL: ' });
+ 
+//cria o qr code relativo ao site digitado;
+const qr_png = qr.image(userURL);
+qr_png.pipe(fs.createWriteStream('site_qr.png'));
 
-console.log(answer);
